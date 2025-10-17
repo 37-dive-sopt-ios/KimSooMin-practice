@@ -45,6 +45,16 @@ final class LoginViewController: UIViewController {
         return passwordField
     }()
     
+    lazy var loginButton: UIButton = {
+       let button = UIButton(frame: CGRect(x: 33, y: 422, width: 335, height: 57))
+        button.backgroundColor = .primaryOrange
+        button.setTitle("로그인하기", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .subhead1
+        button.layer.cornerRadius = 6
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +65,8 @@ final class LoginViewController: UIViewController {
     private func setLayout() {
         [sloganLabel,
          idTextField,
-         passwordTextField]
+         passwordTextField,
+         loginButton]
             .forEach {
                 self.view.addSubview($0)
             }
