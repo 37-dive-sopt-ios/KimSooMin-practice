@@ -38,9 +38,9 @@ final class LoginViewController: UIViewController {
         passwordField.layer.cornerRadius = 3
         passwordField.font = .subhead4
         passwordField.addLeftPadding()
-        
         passwordField.isSecureTextEntry = true
         passwordField.textContentType = .none
+        passwordField.clearButtonMode = .whileEditing
         
         return passwordField
     }()
