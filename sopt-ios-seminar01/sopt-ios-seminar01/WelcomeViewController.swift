@@ -33,6 +33,9 @@ final class WelcomeViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .subhead1
         button.layer.cornerRadius = 6
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 3, height: 3)
         return button
     }()
     
@@ -43,6 +46,9 @@ final class WelcomeViewController: UIViewController {
         button.setTitleColor(.grey300, for: .normal)
         button.titleLabel?.font = .subhead1
         button.layer.cornerRadius = 6
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 3, height: 3)
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         return button
     }()

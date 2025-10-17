@@ -52,6 +52,9 @@ final class LoginViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .subhead1
         button.layer.cornerRadius = 6
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 3, height: 3)
         
         button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         return button
