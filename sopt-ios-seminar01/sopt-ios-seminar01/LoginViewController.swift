@@ -46,7 +46,7 @@ final class LoginViewController: UIViewController {
     }()
     
     private lazy var loginButton: UIButton = {
-       let button = UIButton(frame: CGRect(x: 33, y: 422, width: 335, height: 57))
+        let button = UIButton(frame: CGRect(x: 33, y: 445, width: 335, height: 57))
         button.backgroundColor = .primaryOrange
         button.setTitle("로그인하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -59,6 +59,28 @@ final class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         return button
     }()
+    
+    private let showPasswordSwitch: UISwitch = {
+        let toggle = UISwitch(frame: CGRect(x: 300, y: 400, width: 0, height: 0))
+        toggle.isOn = false
+        toggle.onTintColor = .primaryOrange
+        toggle.thumbTintColor = .white
+        return toggle
+    }()
+    
+    private let showPasswordLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 210, y: 403, width: 100, height: 20))
+        label.text = "비밀번호 표시"
+        label.font = .subhead4
+        label.textColor = .grey300
+        return label
+    }()
+    
+    // 스위치 버튼 눌렸을 때
+    @objc
+    private func showPasswordSwitchDidChange(_ sender: UISwitch) {
+        passwordTextField.isSecureTextEntry = !sender.isOn
+    }
     
     // 화면 전환 - 모달
     private func presentToWelcomeVC() {
@@ -84,16 +106,20 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .white
+        
         setLayout()
+        showPasswordSwitch.addTarget(self, action: #selector(showPasswordSwitchDidChange(_:)), for: .valueChanged)
+
     }
     
     private func setLayout() {
         [sloganLabel,
          idTextField,
          passwordTextField,
-         loginButton]
+         loginButton,
+         showPasswordLabel,
+         showPasswordSwitch]
             .forEach {
                 self.view.addSubview($0)
             }
