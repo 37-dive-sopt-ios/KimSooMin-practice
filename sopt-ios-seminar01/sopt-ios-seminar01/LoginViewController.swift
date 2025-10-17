@@ -31,6 +31,20 @@ final class LoginViewController: UIViewController {
         return textField
     }()
     
+    private let passwordTextField: UITextField = {
+        let passwordField = UITextField(frame: CGRect(x: 33, y: 335, width: 335, height: 52))
+        passwordField.placeholder = "비밀번호"
+        passwordField.backgroundColor = .grey200
+        passwordField.layer.cornerRadius = 3
+        passwordField.font = .subhead4
+        passwordField.addLeftPadding()
+        
+        passwordField.isSecureTextEntry = true
+        passwordField.textContentType = .none
+        
+        return passwordField
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,9 +54,10 @@ final class LoginViewController: UIViewController {
     
     private func setLayout() {
         [sloganLabel,
-        idTextField]
+         idTextField,
+         passwordTextField]
             .forEach {
-            self.view.addSubview($0)
-        }
+                self.view.addSubview($0)
+            }
     }
 }
