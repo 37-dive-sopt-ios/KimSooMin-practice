@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class WelcomeViewController: UIViewController {
+    var id: String?
     
     private let dangeuniImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 126, y: 87, width: 150, height: 150))
@@ -18,7 +19,6 @@ final class WelcomeViewController: UIViewController {
     
     private let greetingLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 153, y: 295, width: 95, height: 60))
-        label.text = "???님\n반가워요!"
         label.textColor = .black
         label.numberOfLines = 2
         label.font = .head1
@@ -27,7 +27,7 @@ final class WelcomeViewController: UIViewController {
     }()
     
     lazy var goMainButton: UIButton = {
-       let button = UIButton(frame: CGRect(x: 33, y: 426, width: 335, height: 57))
+        let button = UIButton(frame: CGRect(x: 33, y: 426, width: 335, height: 57))
         button.backgroundColor = .primaryOrange
         button.setTitle("메인으로", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -37,7 +37,7 @@ final class WelcomeViewController: UIViewController {
     }()
     
     lazy var reLoginButton: UIButton = {
-       let button = UIButton(frame: CGRect(x: 33, y: 498, width: 335, height: 57))
+        let button = UIButton(frame: CGRect(x: 33, y: 498, width: 335, height: 57))
         button.backgroundColor = .grey200
         button.setTitle("다시 로그인", for: .normal)
         button.setTitleColor(.grey300, for: .normal)
@@ -46,7 +46,6 @@ final class WelcomeViewController: UIViewController {
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         return button
     }()
-    
     
     // '다시로그인' 버튼 눌렸을 때
     @objc
@@ -59,11 +58,24 @@ final class WelcomeViewController: UIViewController {
         }
     }
     
+    // 입력받은 id 값 바인딩
+    private func bindID() {
+        if let id = id {
+            if id == "" {
+                self.greetingLabel.text = "반가워요!"
+            }
+            else {
+                self.greetingLabel.text = "\(id)님\n반가워요!"
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
         setLayout()
+        bindID()
     }
     
     private func setLayout() {

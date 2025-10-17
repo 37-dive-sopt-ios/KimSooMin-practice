@@ -61,12 +61,14 @@ final class LoginViewController: UIViewController {
     private func presentToWelcomeVC() {
         let vc = WelcomeViewController()
         vc.modalPresentationStyle = .formSheet
+        vc.id = idTextField.text
         self.present(vc, animated: true)
     }
     
     // 화면 전환 - 네비게이션
     private func pushToWelcomeVC(){
         let vc = WelcomeViewController()
+        vc.id = idTextField.text
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
