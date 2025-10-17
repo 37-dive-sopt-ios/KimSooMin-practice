@@ -16,6 +16,16 @@ final class WelcomeViewController: UIViewController {
         return imageView
     }()
     
+    private let greetingLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 153, y: 295, width: 95, height: 60))
+        label.text = "???님\n반가워요!"
+        label.textColor = .black
+        label.numberOfLines = 2
+        label.font = .head1
+        label.textAlignment = .center
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +34,8 @@ final class WelcomeViewController: UIViewController {
     }
     
     private func setLayout() {
-        [dangeuniImage]
+        [dangeuniImage,
+         greetingLabel]
             .forEach {
                 self.view.addSubview($0)
             }
