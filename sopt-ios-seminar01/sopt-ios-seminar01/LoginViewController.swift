@@ -59,14 +59,21 @@ final class LoginViewController: UIViewController {
     
     // 화면 전환 - 모달
     private func presentToWelcomeVC() {
-        let welcomeViewController = WelcomeViewController()
-        welcomeViewController.modalPresentationStyle = .formSheet
-        self.present(welcomeViewController, animated: true)
+        let vc = WelcomeViewController()
+        vc.modalPresentationStyle = .formSheet
+        self.present(vc, animated: true)
+    }
+    
+    // 화면 전환 - 네비게이션
+    private func pushToWelcomeVC(){
+        let vc = WelcomeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc
     private func loginButtonDidTap() {
-        presentToWelcomeVC()
+        //presentToWelcomeVC()
+        pushToWelcomeVC()
     }
     
     override func viewDidLoad() {
