@@ -8,12 +8,9 @@
 import UIKit
 
 extension UIFont {
-    
     static var head1: UIFont = UIFont(name: "Pretendard-ExtraBold", size: 30)!
     
-    
     static var subhead1: UIFont = UIFont(name: "Pretendard-Bold", size: 18)!
-    
     
     static var subhead2: UIFont =  UIFont(name: "Pretendard-Regular", size: 16)!
     
