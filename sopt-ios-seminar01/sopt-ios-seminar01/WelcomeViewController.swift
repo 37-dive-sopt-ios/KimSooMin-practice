@@ -26,6 +26,26 @@ final class WelcomeViewController: UIViewController {
         return label
     }()
     
+    lazy var goMainButton: UIButton = {
+       let button = UIButton(frame: CGRect(x: 33, y: 426, width: 335, height: 57))
+        button.backgroundColor = .primaryOrange
+        button.setTitle("메인으로", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .subhead1
+        button.layer.cornerRadius = 6
+        return button
+    }()
+    
+    lazy var reLoginButton: UIButton = {
+       let button = UIButton(frame: CGRect(x: 33, y: 498, width: 335, height: 57))
+        button.backgroundColor = .grey200
+        button.setTitle("다시 로그인", for: .normal)
+        button.setTitleColor(.grey300, for: .normal)
+        button.titleLabel?.font = .subhead1
+        button.layer.cornerRadius = 6
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +55,9 @@ final class WelcomeViewController: UIViewController {
     
     private func setLayout() {
         [dangeuniImage,
-         greetingLabel]
+         greetingLabel,
+         goMainButton,
+         reLoginButton]
             .forEach {
                 self.view.addSubview($0)
             }
