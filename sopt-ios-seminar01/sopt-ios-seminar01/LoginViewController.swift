@@ -20,6 +20,17 @@ final class LoginViewController: UIViewController {
         return label
     }()
     
+    private let idTextField: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 33, y: 276, width: 335, height: 52))
+        textField.placeholder = "아이디"
+        textField.backgroundColor = .grey200
+        textField.layer.cornerRadius = 3
+        textField.font = .subhead4
+        textField.addLeftPadding()
+        
+        return textField
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +39,8 @@ final class LoginViewController: UIViewController {
     }
     
     private func setLayout() {
-        [sloganLabel]
+        [sloganLabel,
+        idTextField]
             .forEach {
             self.view.addSubview($0)
         }
