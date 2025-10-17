@@ -45,15 +45,29 @@ final class LoginViewController: UIViewController {
         return passwordField
     }()
     
-    lazy var loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
        let button = UIButton(frame: CGRect(x: 33, y: 422, width: 335, height: 57))
         button.backgroundColor = .primaryOrange
         button.setTitle("로그인하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .subhead1
         button.layer.cornerRadius = 6
+        
+        button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         return button
     }()
+    
+    // 화면 전환 - 모달
+    private func presentToWelcomeVC() {
+        let welcomeViewController = WelcomeViewController()
+        welcomeViewController.modalPresentationStyle = .formSheet
+        self.present(welcomeViewController, animated: true)
+    }
+    
+    @objc
+    private func loginButtonDidTap() {
+        presentToWelcomeVC()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
