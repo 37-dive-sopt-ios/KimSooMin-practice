@@ -43,8 +43,21 @@ final class WelcomeViewController: UIViewController {
         button.setTitleColor(.grey300, for: .normal)
         button.titleLabel?.font = .subhead1
         button.layer.cornerRadius = 6
+        button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         return button
     }()
+    
+    
+    // '다시로그인' 버튼 눌렸을 때
+    @objc
+    public func backToLoginButtonDidTap() {
+        if self.navigationController == nil {
+            self.dismiss(animated: true)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

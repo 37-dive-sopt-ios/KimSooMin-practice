@@ -70,6 +70,7 @@ final class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // '로그인하기' 버튼 눌렸을 때
     @objc
     private func loginButtonDidTap() {
         //presentToWelcomeVC()
